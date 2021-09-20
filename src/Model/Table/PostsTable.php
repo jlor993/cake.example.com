@@ -7,7 +7,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-
+// the Text class
+use Cake\Utility\Text;
 /**
  * Posts Model
  *
@@ -98,6 +99,22 @@ class PostsTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
+    public function createSlug($title)
+    {
+        return Text::slug(
+            strtolower(
+                substr($title, 0, 191)
+            )
+        );
+    }
+
+    public function beforeMarshal($event, $data)
+    {
+        if (!isset($data['slug']) && !empty($data['title'])) {
+            $data['slug'] = $this->createSlug($data['title']);
+        }
+    }
+
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
