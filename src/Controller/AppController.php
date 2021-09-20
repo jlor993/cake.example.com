@@ -28,6 +28,15 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+    protected $session;
+    // public function beforeFilter(\Cake\Event\EventInterface $event)
+    // {
+    //     parent::beforeFilter($event);
+    //     // for all controllers in our application, make index and view
+    //     // actions public, skipping the authentication check.
+    //     $this->Authentication->addUnauthenticatedActions(['index', 'view']);
+    // }
+
     /**
      * Initialization hook method.
      *
@@ -41,8 +50,14 @@ class AppController extends Controller
     {
         parent::initialize();
 
+        // Add this line to check authentication result and lock your site
+        // $this->loadComponent('Authentication.Authentication');
+
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+
+        $this->session = $this->getRequest()->getSession();
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
@@ -50,4 +65,5 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+    
 }

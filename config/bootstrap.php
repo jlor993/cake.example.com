@@ -217,3 +217,15 @@ TypeFactory::map('time', StringType::class);
 //Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
+/*
+// The following configuration setting must be set before loading the Users plugin
+Configure::write('Users.config', ['users']);
+Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true ]);
+Configure::write('Users.Social.login', true); //to enable social login
+
+Configure::write('OAuth.providers.facebook.options.clientId', 'YOUR APP ID');
+Configure::write('OAuth.providers.facebook.options.clientSecret', 'YOUR APP SECRET');
+
+Configure::write('OAuth.providers.twitter.options.clientId', 'YOUR APP ID');
+Configure::write('OAuth.providers.twitter.options.clientSecret', 'YOUR APP SECRET');
+*/

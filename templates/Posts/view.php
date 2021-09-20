@@ -57,6 +57,11 @@
                     <?= $this->Text->autoParagraph(h($post->body)); ?>
                 </blockquote>
             </div>
+            <table>
+                <tr>
+                    <th><?= __('Comments') ?></th>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
