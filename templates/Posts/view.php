@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Post $post
+ * @var \App\Model\Entity\Comment[]|\Cake\Collection\CollectionInterface $comments
  */
 ?>
 <div class="row">
@@ -61,6 +62,23 @@
                 <tr>
                     <th><?= __('Comments') ?></th>
                 </tr>
+                <tbody>
+                    <?php foreach ($comments as $comment): ?>
+                    <tr>
+                        <td><?= h($comment->id) ?></td>
+                        <td><?= $comment->has('post') ? $this->Html->link($comment->post->title, ['controller' => 'Posts', 'action' => 'view', $comment->post->id]) : '' ?></td>
+                        <td><?= h($comment->first_name) ?></td>
+                        <td><?= h($comment->last_name) ?></td>
+                        <td><?= h($comment->email) ?></td>
+                        <td><?= h($comment->created) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $comment->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $comment->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $comment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $comment->id)]) ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </div>
     </div>

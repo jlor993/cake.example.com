@@ -228,4 +228,6 @@ Configure::write('OAuth.providers.facebook.options.clientSecret', 'YOUR APP SECR
 
 Configure::write('OAuth.providers.twitter.options.clientId', 'YOUR APP ID');
 Configure::write('OAuth.providers.twitter.options.clientSecret', 'YOUR APP SECRET');
+
+Configure::write('Contact.email', 'jlor993@gmail.com');
 */

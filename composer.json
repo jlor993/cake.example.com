@@ -16,6 +16,7 @@
         "league/oauth2-facebook": "@stable",
         "mailgun/mailgun-php": "^3.5",
         "mobiledetect/mobiledetectlib": "^2.8",
+        "narendravaghela/cakephp-mailgun": "^5.0",
         "nyholm/psr7": "^1.4"
     },
     "require-dev": {
